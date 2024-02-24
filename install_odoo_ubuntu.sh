@@ -27,7 +27,7 @@ INSTALL_WKHTMLTOPDF="True"
 OE_PORT="8069"
 # Choose the Odoo version which you want to install. For example: 16.0, 15.0 or 14.0. When using 'master' the master version will be installed.
 # IMPORTANT! This script contains extra libraries that are specifically needed for Odoo 14.0
-OE_VERSION="17.0"
+OE_VERSION="16.0"
 # Set this to True if you want to install the Odoo enterprise version!
 IS_ENTERPRISE="False"
 # Set this to True if you want to install Nginx!
@@ -38,22 +38,22 @@ OE_SUPERADMIN="admin"
 GENERATE_RANDOM_PASSWORD="True"
 OE_CONFIG="${OE_USER}-server"
 # Set the website name
-WEBSITE_NAME="example.com"
+WEBSITE_NAME="odoo.virtuzvibes.in"
 # Set the default Odoo longpolling port (you still have to use -c /etc/odoo-server.conf for example to use this.)
 LONGPOLLING_PORT="8072"
 # Set to "True" to install certbot and have ssl enabled, "False" to use http
 ENABLE_SSL="True"
 # Provide Email to register ssl certificate
-ADMIN_EMAIL="odoo@example.com"
+ADMIN_EMAIL="aashish.p@virtuzvibes.in"
 
 ###
 #----------------------------------------------------
 # Disable password authentication
 #----------------------------------------------------
-sudo sed -i 's/#ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
-sudo sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config 
-sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-sudo systemctl restart sshd
+# sudo sed -i 's/#ChallengeResponseAuthentication yes/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
+# sudo sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config 
+# sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+# sudo systemctl restart sshd
 
 ##
 #--------------------------------------------------
@@ -68,7 +68,7 @@ sudo apt autoremove -y
 # Set up the timezones
 #--------------------------------------------------
 # set the correct timezone on ubuntu
-timedatectl set-timezone Africa/Kigali
+timedatectl set-timezone Asia/Kolkata
 timedatectl
 
 #--------------------------------------------------
@@ -351,7 +351,7 @@ fi
 #--------------------------------------------------
 # Enable ssl with certbot
 #--------------------------------------------------
-if [ $INSTALL_NGINX = "True" ] && [ $ENABLE_SSL = "True" ]  && [ $WEBSITE_NAME != "example.com" ];then
+if [ $INSTALL_NGINX = "True" ] && [ $ENABLE_SSL = "True" ]  && [ $WEBSITE_NAME != "odoo.virtuzvibes.in" ];then
   sudo apt-get remove certbot
   sudo snap install core
   sudo snap refresh core
